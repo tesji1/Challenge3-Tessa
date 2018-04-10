@@ -2,7 +2,7 @@
 
 function getAPIdata() {
 
-  var url = "http://api.openweathermap.org/data/2.5/weather";
+  var url = "https://api.openweathermap.org/data/2.5/weather";
   var apiKey ="0089d8db29e8e557160590c69e891db3";
   var city = "florida";
 
@@ -69,7 +69,7 @@ var marker;
 
 function initMap() {
 
-  
+
 
 	// set style for the map https://mapstyle.withgoogle.com/
 	var myStyles =[
