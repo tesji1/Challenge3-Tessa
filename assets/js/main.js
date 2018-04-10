@@ -1,5 +1,7 @@
 
 
+
+
 function getAPIdata() {
 
   var url = "https://api.openweathermap.org/data/2.5/weather";
@@ -49,7 +51,6 @@ function onAPIError() {
   var weatherBox = document.getElementById('weather2');
   weatherBox.className = 'hidden'; // als die niet doet wordt het weer niet getoont
 }
-
 // einde weather //
 
 // init data stream
@@ -513,13 +514,7 @@ function initMap() {
 
 
     
-    
 
-	// set the map for the direction display 
-	directionsDisplay.setMap(myMap);
-	
-	// call function to get the route
-	calculateAndDisplayRoute(directionsService, directionsDisplay);
 
 }
 
@@ -530,39 +525,6 @@ function initMap() {
 
 
 
-// // function to get the route
-// function calculateAndDisplayRoute(directionsService, directionsDisplay) {
-
-// 	var request = {
-// 		origin: {lat: 28.5728722,lng:  -80.6489808,},
-// 		destination: {lat: 28.614458,lng: -80.694108},
-// 		travelMode: 'WALKING' //DRIVING, BICYCLING, TRANSIT, WALKING
-
-// 	};
-
-//     // create a marker for de Haagse Hogeschool
-//   var hhsMarker = new google.maps.Marker({
-//     position: {
-//       lat: 28.5728722, 
-//       lng: -80.6489808,
-//     },
-//   });
-
-// 	directionsService.route(request, function(response, status) {
-// 		if (status === 'OK') {
-// 			directionsDisplay.setDirections(response); // display the route
-// 		} else {
-// 			window.alert('Directions request failed due to ' + status);
-// 		}
-// 	});
-// }
-
-
-
-// API WEATHER 
-
-
-
 /**
  * Fetch API data
  */
@@ -570,7 +532,7 @@ function getAPIdataa() {
 	
 	var url = "https://api.openweathermap.org/data/2.5/forecast";
 	var apiKey ="0089d8db29e8e557160590c69e891db3";
-	var city = "Florida";
+	var city = "florida";
 
 	// construct request
 	var requestt = url + "?" + "appid=" + apiKey + "&" + "q=" + city;
