@@ -369,7 +369,7 @@ function calculateAndDisplayRoute(directionsService, directionsDisplay) {
 function getAPIdata() {
 	
 	var url = "http://api.openweathermap.org/data/2.5/forecast";
-	var apiKey ="b0c8dafa512a0134e90df6ece3c2b7a2";
+	var apiKey ="0089d8db29e8e557160590c69e891db3";
 	var city = "Melbourne";
 
 	// construct request
