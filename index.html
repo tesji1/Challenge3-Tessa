@@ -6,8 +6,28 @@
 	<link rel="stylesheet" type="text/css" href="assets/css/style.css">
 </head>
   <body>
-    <div id="map"></div>
-    <article id="weather"></article>
+    <header> <img src="assets/images/logo.jpg" alt="Smiley face"> </header>
+    <div class="flex-container"> 
+
+      <div class="item" id="map"></div>
+      
+      <div class="item3"> 
+        <div class="legenda">
+          <h1> Legenda </h1>
+          <h2> Florida U.S.A. </h2>
+          <img src="assets/images/space-station.png" alt="Space station" > <p> = Space station </p> <p>  </p>
+          <img src="assets/images/landing.png" alt="Landing space x" ><p> = landing space x </p>
+        </div>
+      </div>
+
+      <div class="item2"> 
+        <button onclick="myDing()"> Show 5 days weather</button>
+        <div  id="myDIV">
+          <article  id="weather"></article> 
+        </div>
+      </div>
+  </div>
+
     <script>
       var map;
       function initMap() {
@@ -17,6 +37,7 @@
         });
       }
     </script>
+      
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDH6MwuEBbDGsfTgW0UWMBa3nyPaIHe--s&callback=initMap"
     async defer></script>
     <script src="assets/js/main.js"></script>

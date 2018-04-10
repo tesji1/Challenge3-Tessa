@@ -6,6 +6,7 @@ document.onload = function() {
 
 // init map
 var myMap;
+var marker;
 
 function initMap() {
 
@@ -313,6 +314,8 @@ function initMap() {
   }
 ];
 
+
+
 	// initialize direction variables
 	var directionsService = new google.maps.DirectionsService;
     var directionsDisplay = new google.maps.DirectionsRenderer;
@@ -320,16 +323,47 @@ function initMap() {
 	// set options for map 
 	var mapOptions = {
 		center: {
-			lat: 52.07436, 
-			lng: 4.32148
+			lat: 28.5728722, 
+			lng: -80.6489808
 		},
-		zoom: 15,
+		zoom: 12,
 		clickableIcons: false,
+
 		styles: myStyles 
 	};
 
+
+
+
+
+
+
 	// create map and add to page
 	myMap = new google.maps.Map(document.getElementById('map'), mapOptions);
+
+  // create a marker for de Kenny space central
+  var hhsMarker = new google.maps.Marker({
+    position: {
+      lat: 28.5728722, 
+      lng: -80.6489808,
+    },
+    map: myMap,
+    animation: google.maps.Animation.BOUNCE,
+    title: 'Kenny Space Central',
+    icon: 'assets/images/space-station.png'
+  });
+
+  // create a marker for the airport
+  var AirportMarker = new google.maps.Marker({
+    position: {
+      lat: 28.614458, 
+      lng: -80.694108,
+    },
+    map: myMap,
+    animation: google.maps.Animation.BOUNCE,
+    title: 'Airport',
+    icon: 'assets/images/landing.png'
+  });
 
 	// set the map for the direction display 
 	directionsDisplay.setMap(myMap);
@@ -339,24 +373,33 @@ function initMap() {
 
 }
 
-// function to get the route
-function calculateAndDisplayRoute(directionsService, directionsDisplay) {
+// // function to get the route
+// function calculateAndDisplayRoute(directionsService, directionsDisplay) {
 
-	var request = {
-		origin: {lat: 28.5728722,lng:  -80.6489808},
-		destination: {lat: 28.614458,lng: -80.694108},
-		travelMode: 'WALKING' //DRIVING, BICYCLING, TRANSIT, WALKING
+// 	var request = {
+// 		origin: {lat: 28.5728722,lng:  -80.6489808,},
+// 		destination: {lat: 28.614458,lng: -80.694108},
+// 		travelMode: 'WALKING' //DRIVING, BICYCLING, TRANSIT, WALKING
 
-	};
+// 	};
 
-	directionsService.route(request, function(response, status) {
-		if (status === 'OK') {
-			directionsDisplay.setDirections(response); // display the route
-		} else {
-			window.alert('Directions request failed due to ' + status);
-		}
-	});
-}
+//     // create a marker for de Haagse Hogeschool
+//   var hhsMarker = new google.maps.Marker({
+//     position: {
+//       lat: 28.5728722, 
+//       lng: -80.6489808,
+//     },
+//   });
+
+// 	directionsService.route(request, function(response, status) {
+// 		if (status === 'OK') {
+// 			directionsDisplay.setDirections(response); // display the route
+// 		} else {
+// 			window.alert('Directions request failed due to ' + status);
+// 		}
+// 	});
+// }
+
 
 
 // API WEATHER 
@@ -370,7 +413,7 @@ function getAPIdata() {
 	
 	var url = "https://api.openweathermap.org/data/2.5/forecast";
 	var apiKey ="0089d8db29e8e557160590c69e891db3";
-	var city = "Melbourne";
+	var city = "Florida";
 
 	// construct request
 	var request = url + "?" + "appid=" + apiKey + "&" + "q=" + city;
@@ -460,5 +503,18 @@ function formTime(date) {
 // init data stream
 getAPIdata();
 
+function myFunction() {
+    var x = document.getElementById("mySelect").value;
+    document.getElementById("demo").innerHTML = "You selected: " + x;
+}
+
+function myDing() {
+    var x = document.getElementById("myDIV");
+    if (x.style.display === "block") {
+        x.style.display = "none";
+    } else {
+        x.style.display = "block";
+    }
+}
 
 

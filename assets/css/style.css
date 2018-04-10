@@ -2,19 +2,75 @@
 body {
 	font-family: helvetica;
 	color: #FFFFFF;
-	background-color: #444444;
+	background-color: #000;
 }
 
-h1 {
+header {
+	height: 10vh;
+	color: white;
+	background-color: black;
 	text-align: center;
 }
 
+header img {
+	height: 6vw;
+}
+
+h1 {
+	/*text-align: center;*/
+}
+
+#myDIV {
+	display: none;
+}
+
+.flex-container {
+	display:flex;
+	flex-wrap: wrap;
+}
+
+.item {
+	display:block;
+	width: 100%;
+}
+
+.item3 {
+	display:block;
+	width: 100%;
+}
+
+.item2 {
+	display: block;
+	width: 100%;
+	height: 150px;
+	text-align: center;
+}
+
+.legenda {
+	height: 47.7vw;
+	border: 1px solid white;
+	padding-left: 10px;
+	padding-right: 10px;
+}
+
+.legenda h1, h2 {
+	text-align: center;
+}
+
+.legenda p {
+	display: inline-block;
+}
+
+.legenda img {
+	width: 50px;
+
+}
+
 #map {
-	margin: 0 auto;
-	width: 80vw;
-	height: 80vh;
+	/*margin: 0 auto;*/
+/*	width: 50vw;*/
+	height: 70vh;
 	color: #111;
-	box-shadow: 25px 25px 100px 25px black;
 }
 
 #map img {
@@ -24,4 +80,124 @@ h1 {
 	max-width: 100px;
 	border: 1px solid #333;
 	border-radius: 3px;
+}
+
+#weather {
+	background-color: #000;
+	/*width: 40vw;*/
+	padding: 4px;
+	overflow: auto;
+}
+
+#weather > .forecastMoment {
+	float: left;
+	width: 70px;
+	margin: 2px;
+	padding-top: 4px;
+	padding-bottom: 4px;
+	text-align: center;
+	background-color: #ff00c3;
+	border-radius: 6px;
+	color: #fff;
+	font-size: 0.8em;
+}
+
+.date {
+	font-style: italic;
+}
+
+.temp {
+	font-weight: bold;
+	color: #fff;
+	font-size: 1.3em;
+}
+
+.hidden {
+	display: none;
+}
+
+@media only screen and (min-width: 300px) { 
+
+
+
+	}
+
+
+@media only screen and (min-width: 600px) { 
+
+
+
+}
+
+
+@media only screen and (min-width: 900px) { 
+
+header {
+	height: 10vh;
+	color: white;
+	background-color: black;
+	text-align: center;
+}
+
+header img {
+	height: 6vw;
+}
+
+h1 {
+	/*text-align: center;*/
+}
+
+.flex-container {
+	display:flex;
+	flex-wrap: wrap;
+}
+
+.item {
+	display:block;
+	width: 69%;
+}
+
+.item3 {
+	display:block;
+	width: 30%;
+}
+
+#map {
+	/*margin: 0 auto;*/
+/*	width: 50vw;*/
+	height: 70vh;
+	color: #111;
+}
+
+#map img {
+	display: block;
+	margin: 2px 10px 10px 0;
+	float: left;
+	max-width: 100px;
+	border: 1px solid #333;
+	border-radius: 3px;
+}
+
+
+
+#weather {
+	/*width: 40vw;*/
+	padding: 4px;
+	overflow: auto;
+}
+
+#weather > .forecastMoment {
+	float: left;
+	width: 70px;
+	margin: 2px;
+	padding-top: 4px;
+	padding-bottom: 4px;
+	text-align: center;
+	background-color: #ff00c3;
+	border-radius: 6px;
+	color: #fff;
+	font-size: 0.8em;
+}
+
+
 }
