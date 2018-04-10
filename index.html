@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+	<meta charset="UTF-8">
+	<title>Challenge 3</title>
+	<link rel="stylesheet" type="text/css" href="assets/css/style.css">
+</head>
+  <body>
+    <div id="map"></div>
+    <article id="weather"></article>
+    <script>
+      var map;
+      function initMap() {
+        map = new google.maps.Map(document.getElementById('map'), {
+          center: {lat: -34.397, lng: 150.644},
+          zoom: 8
+        });
+      }
+    </script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDH6MwuEBbDGsfTgW0UWMBa3nyPaIHe--s&callback=initMap"
+    async defer></script>
+    <script src="assets/js/main.js"></script>
+  </body>
+</html>
