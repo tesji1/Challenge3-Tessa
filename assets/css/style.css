@@ -20,8 +20,11 @@ h1 {
 	/*text-align: center;*/
 }
 
+
+
 #myDIV {
 	display: none;
+	padding-top: 20px;
 }
 
 .flex-container {
@@ -44,11 +47,11 @@ h1 {
 	width: 100%;
 	height: 150px;
 	text-align: center;
+    margin-top: 32px;
 }
 
 .legenda {
 	height: 47.7vw;
-	border: 1px solid white;
 	padding-left: 10px;
 	padding-right: 10px;
 }
@@ -63,7 +66,39 @@ h1 {
 
 .legenda img {
 	width: 50px;
+}
 
+.legenda a {
+	padding: 20px;
+}
+
+.btn {
+  background: transparent;
+  background-image: -webkit-linear-gradient(top, transparent);
+  background-image: -moz-linear-gradient(top, transparent);
+  background-image: -ms-linear-gradient(top, transparent);
+  background-image: -o-linear-gradient(top,transparent);
+  background-image: linear-gradient(to bottom, transparent);
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  border-radius: 0px;
+  font-family: Arial;
+  color: #fff;
+  font-size: 20px;
+  padding: 10px 20px 10px 20px;
+  border: solid #fff 2px;
+  text-decoration: none;
+}
+
+.btn:hover {
+  background: #fff;
+  background-image: -webkit-linear-gradient(top, #fff, #fff);
+  background-image: -moz-linear-gradient(top, #fff, #ffff);
+  background-image: -ms-linear-gradient(top, #fff, #fff);
+  background-image: -o-linear-gradient(top, #fff, #fff);
+  background-image: linear-gradient(to bottom, #fff, #fff);
+  text-decoration: none;
+  color: black;
 }
 
 #map {
@@ -96,7 +131,7 @@ h1 {
 	padding-top: 4px;
 	padding-bottom: 4px;
 	text-align: center;
-	background-color: #ff00c3;
+	background-color: #023e58;
 	border-radius: 6px;
 	color: #fff;
 	font-size: 0.8em;
@@ -178,6 +213,11 @@ h1 {
 	border-radius: 3px;
 }
 
+#weather2 {
+	font-size: 30px;
+	font-weight: 100;
+}
+
 
 
 #weather {
@@ -193,7 +233,6 @@ h1 {
 	padding-top: 4px;
 	padding-bottom: 4px;
 	text-align: center;
-	background-color: #ff00c3;
 	border-radius: 6px;
 	color: #fff;
 	font-size: 0.8em;

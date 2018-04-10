@@ -1,4 +1,63 @@
 
+
+function getAPIdata() {
+
+  var url = "http://api.openweathermap.org/data/2.5/weather";
+  var apiKey ="0089d8db29e8e557160590c69e891db3";
+  var city = "florida";
+
+  // construct request
+  var request = url + "?" + "appid=" + apiKey + "&" + "q=" + city;
+  
+  // get current weather
+  fetch(request)
+  
+  // parse to JSON format
+  .then(function(response) {
+    return response.json();
+  })
+  
+  // render weather per day
+  .then(function(response) { //iets met jason format aan het doen
+    // render weatherCondition
+    onAPISucces(response);  
+  })
+  
+  // catch error
+  .catch(function (error) {
+    onAPIError();
+  });
+}
+
+// start weather function
+
+function onAPISucces(response) {
+  // get type of weather in string format
+  var type = response.weather[0].description;
+
+  // get temperature in Celcius
+  var degC = Math.floor(response.main.temp - 273.15);
+
+  // render weather in DOM
+  var weatherBox = document.getElementById('weather2');
+  weatherBox.innerHTML = degC + "&#176;C <br>" + type;
+}
+
+
+function onAPIError() {
+  console.error('Request failed', error);
+  var weatherBox = document.getElementById('weather2');
+  weatherBox.className = 'hidden'; // als die niet doet wordt het weer niet getoont
+}
+
+// einde weather //
+
+// init data stream
+getAPIdata();
+
+
+
+
 // on page load show map
 document.onload = function() {
 	initMap();
@@ -9,6 +68,8 @@ var myMap;
 var marker;
 
 function initMap() {
+
+  
 
 	// set style for the map https://mapstyle.withgoogle.com/
 	var myStyles =[
@@ -333,25 +394,50 @@ function initMap() {
 	};
 
 
-
-
-
-
-
 	// create map and add to page
 	myMap = new google.maps.Map(document.getElementById('map'), mapOptions);
 
-  // create a marker for de Kenny space central
-  var hhsMarker = new google.maps.Marker({
-    position: {
-      lat: 28.5728722, 
-      lng: -80.6489808,
-    },
-    map: myMap,
-    animation: google.maps.Animation.BOUNCE,
-    title: 'Kenny Space Central',
-    icon: 'assets/images/space-station.png'
-  });
+
+
+
+
+   var contentString = '<div id="content">'+
+            '<div id="siteNotice">'+
+            '</div>'+
+            '<h1 id="firstHeading" class="firstHeading">Kennedy Space Center</h1>'+
+            '<img src="assets/images/logo-kennedy-space.png" alt="Kennedy space">'+
+            '<div id="bodyContent">'+
+            '<p><b>Kennedy Space Center</b>' +
+            ' Het Kennedy Space Center is de lanceerbasis '+
+            'ruimtevaartindustriecomplex van NASA bij Cape Canaveral op Merritt  '+
+            'south west of the nearest large town, Alice Springs; 450&#160;km '+
+            'Island in Florida. Vanaf deze lanceerbasis werden in het verleden de '+
+            'Apollo-vluchten voorbereid'+
+            '<img src="assets/images/kennedy-space.jpg" alt="Kennedy space">'+
+            '<p>Attribution: Kennedy Space Center, <a href="http://www.spacex.com/">'+
+            'http://www.spacex.com/</a> '+
+            'Lees de website voor meer informatie.</p>'+
+            '</div>'+
+            '</div>';
+
+        var infowindow = new google.maps.InfoWindow({
+          content: contentString,
+          maxWidth: 200
+        });
+
+        var marker = new google.maps.Marker({
+          position: {
+            lat: 28.5728722, 
+            lng: -80.6489808,
+          },
+          map: myMap,
+          animation: google.maps.Animation.BOUNCE,
+          title: 'Kenny Space Central',
+          icon: 'assets/images/space-station.png'
+          });
+          marker.addListener('click', function() {
+            infowindow.open(myMap, marker);
+          });
 
   // create a marker for the airport
   var AirportMarker = new google.maps.Marker({
@@ -365,6 +451,70 @@ function initMap() {
     icon: 'assets/images/landing.png'
   });
 
+
+     var contentStringAirport = '<div id="content">'+
+            '<div id="siteNotice">'+
+            '</div>'+
+            '<h1 id="firstHeading" class="firstHeading">NASA shuttle landing facility</h1>'+
+            '<div id="bodyContent">'+
+            '<p><b>NASA shuttle landing facility</b>' +
+            ' De Shuttle Landing Facility is een vliegveld dat gelegen is  '+
+            'bij het stadje Merritt Island in Brevard County in de Amerikaanse staat Florida. '+
+            '<img src="assets/images/nasa.jpEg" alt="Kennedy space">'+
+
+            '<p>Attribution: Kennedy Space Center, <a href="http://www.spacex.com/">'+
+            'http://www.spacex.com/</a> '+
+            'Lees de website voor meer informatie.</p>'+
+            '</div>'+
+            '</div>';
+
+        var infowindowAirport = new google.maps.InfoWindow({
+          content: contentStringAirport,
+          maxWidth: 200
+        });
+
+        var AirportMarker = new google.maps.Marker({
+          position: {
+            lat: 28.614458, 
+            lng: -80.694108,
+          },
+          map: myMap,
+          animation: google.maps.Animation.BOUNCE,
+          title: 'Airport',
+          icon: 'assets/images/landing.png'
+          });
+          AirportMarker.addListener('click', function() {
+            infowindowAirport.open(myMap, AirportMarker);
+          });
+
+    // create a marker for the airport
+  var AirportMarkerMelbourne = new google.maps.Marker({
+    position: {
+      lat: 28.1025235, 
+      lng: -80.64536750000002,
+    },
+    map: myMap,
+    animation: google.maps.Animation.BOUNCE,
+    title: 'Melbourne international Airport',
+    icon: 'assets/images/landing.png'
+  });
+
+      // create a marker for the airport
+  var AirportMarkerMerrit = new google.maps.Marker({
+    position: {
+      lat: 28.3424508, 
+      lng: -80.68894339999997,
+    },
+    map: myMap,
+    animation: google.maps.Animation.BOUNCE,
+    title: 'Merritt Island Airport-COI',
+    icon: 'assets/images/landing.png'
+  });
+
+
+    
+    
+
 	// set the map for the direction display 
 	directionsDisplay.setMap(myMap);
 	
@@ -372,6 +522,13 @@ function initMap() {
 	calculateAndDisplayRoute(directionsService, directionsDisplay);
 
 }
+
+
+
+      
+
+
+
 
 // // function to get the route
 // function calculateAndDisplayRoute(directionsService, directionsDisplay) {
@@ -409,17 +566,17 @@ function initMap() {
 /**
  * Fetch API data
  */
-function getAPIdata() {
+function getAPIdataa() {
 	
 	var url = "https://api.openweathermap.org/data/2.5/forecast";
 	var apiKey ="0089d8db29e8e557160590c69e891db3";
 	var city = "Florida";
 
 	// construct request
-	var request = url + "?" + "appid=" + apiKey + "&" + "q=" + city;
+	var requestt = url + "?" + "appid=" + apiKey + "&" + "q=" + city;
 	
 	// get weather forecast
-	fetch(request)
+	fetch(requestt)
 
 	// parse to JSON format
 	.then(function(response) {
@@ -430,7 +587,7 @@ function getAPIdata() {
 	.then(function(response) {
 
 		// render weatherCondition
-		onAPISucces(response);
+		onAPISuccess(response);
 	})
 	
 	// catch error
@@ -443,7 +600,7 @@ function getAPIdata() {
 /**
  * Render weather listing
  */
-function onAPISucces(response) {
+function onAPISuccess(response) {
 
 	var weatherList = response.list;
 	var weatherBox = document.getElementById('weather');
@@ -501,12 +658,8 @@ function formTime(date) {
 }
 
 // init data stream
-getAPIdata();
+getAPIdataa();
 
-function myFunction() {
-    var x = document.getElementById("mySelect").value;
-    document.getElementById("demo").innerHTML = "You selected: " + x;
-}
 
 function myDing() {
     var x = document.getElementById("myDIV");
@@ -516,5 +669,8 @@ function myDing() {
         x.style.display = "block";
     }
 }
+
+
+
 
 
