@@ -227,6 +227,14 @@ h1 {
 @media only screen and (min-width: 700px) { 
 
 	.legenda {
+		height: 50.7vw;
+	}
+
+	}
+
+	@media only screen and (min-width: 800px) { 
+
+	.legenda {
 		height: 40.7vw;
 	}
 
