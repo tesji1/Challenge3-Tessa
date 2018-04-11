@@ -48,6 +48,7 @@ h1 {
 .item3 {
 	display:block;
 	width: 100%;
+	min-height: 483px;
 }
 
 .item2 {
@@ -94,7 +95,7 @@ h1 {
   border-radius: 0px;
   font-family: 'Raleway', sans-serif;
   color: #fff;
-  font-size: 20px;
+  font-size: 12px;
   padding: 10px 20px 10px 20px;
   border: solid #fff 2px;
   text-decoration: none;
@@ -190,11 +191,7 @@ h1 {
 	 height:100vw;
 }
 
-.btn { 
-	font-size: 12px;
-	}
 
-	}
 
 	@media only screen and (min-width: 400px) { 
 
@@ -202,10 +199,22 @@ h1 {
 		height: 90.7vw;
 	}
 
+	.btn { 
+	font-size: 15px;
+	}
+
+	}
+
 	}
 
 
 @media only screen and (min-width: 600px) { 
+
+		.btn { 
+	font-size: 18px;
+	}
+
+	}
 
 .flex-container {
 	display:flex;
@@ -221,6 +230,7 @@ h1 {
 	display:block;
 	width: 100%;
 		text-align: center;
+		min-height: 483px;
 }
 
 .item2 {
@@ -231,7 +241,7 @@ h1 {
     margin-top: 32px;
 }
 .legenda {
-	 height:50.7vw;
+	 height:80.7vw;
 }
 
 }
@@ -325,6 +335,12 @@ h1 {
 	color: #fff;
 	font-size: 0.8em;
 }
+
+	.btn { 
+	font-size: 20px;
+	}
+
+	}
 
 
 }
