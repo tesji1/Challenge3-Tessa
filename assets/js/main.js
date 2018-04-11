@@ -1,7 +1,3 @@
-
-
-
-
 function getAPIdata() {
 
   var url = "https://api.openweathermap.org/data/2.5/weather";
@@ -56,18 +52,26 @@ function onAPIError() {
 // init data stream
 getAPIdata();
 
-
-
+// MAP SHOW 
+var map;
+function initMap() {
+  map = new google.maps.Map(document.getElementById('map'), {
+    center: {lat: -34.397, lng: 150.644},
+    zoom: 8
+  });
+}
 
 // on page load show map
 document.onload = function() {
 	initMap();
 };
 
-// init map
+
+// Variablen map en marker
 var myMap;
 var marker;
 
+// init map
 function initMap() {
 
 
@@ -401,7 +405,7 @@ function initMap() {
 
 
 
-
+// info window central space center
    var contentString = '<div id="content">'+
             '<div id="siteNotice">'+
             '</div>'+
@@ -426,19 +430,20 @@ function initMap() {
           maxWidth: 200
         });
 
-        var marker = new google.maps.Marker({
-          position: {
-            lat: 28.5728722, 
-            lng: -80.6489808,
-          },
-          map: myMap,
-          animation: google.maps.Animation.BOUNCE,
-          title: 'Kenny Space Central',
-          icon: 'assets/images/space-station.png'
-          });
-          marker.addListener('click', function() {
-            infowindow.open(myMap, marker);
-          });
+// Marker central space central
+    var marker = new google.maps.Marker({
+      position: {
+        lat: 28.5728722, 
+        lng: -80.6489808,
+      },
+      map: myMap,
+      animation: google.maps.Animation.BOUNCE,
+      title: 'Kenny Space Central',
+      icon: 'assets/images/space-station.png'
+      });
+      marker.addListener('click', function() {
+        infowindow.open(myMap, marker);
+      });
 
   // create a marker for the airport
   var AirportMarker = new google.maps.Marker({
@@ -453,6 +458,7 @@ function initMap() {
   });
 
 
+// info window for airportMarker when click 
      var contentStringAirport = '<div id="content">'+
             '<div id="siteNotice">'+
             '</div>'+
@@ -474,21 +480,22 @@ function initMap() {
           maxWidth: 200
         });
 
-        var AirportMarker = new google.maps.Marker({
-          position: {
-            lat: 28.614458, 
-            lng: -80.694108,
-          },
-          map: myMap,
-          animation: google.maps.Animation.BOUNCE,
-          title: 'Airport',
-          icon: 'assets/images/landing.png'
-          });
-          AirportMarker.addListener('click', function() {
-            infowindowAirport.open(myMap, AirportMarker);
-          });
+//marker airportMarker with window when click
+    var AirportMarker = new google.maps.Marker({
+      position: {
+        lat: 28.614458, 
+        lng: -80.694108,
+      },
+      map: myMap,
+      animation: google.maps.Animation.BOUNCE,
+      title: 'Airport',
+      icon: 'assets/images/landing.png'
+      });
+      AirportMarker.addListener('click', function() {
+        infowindowAirport.open(myMap, AirportMarker);
+      });
 
-    // create a marker for the airport
+    // create a marker for the airport Melbourne
   var AirportMarkerMelbourne = new google.maps.Marker({
     position: {
       lat: 28.1025235, 
@@ -500,7 +507,7 @@ function initMap() {
     icon: 'assets/images/landing.png'
   });
 
-      // create a marker for the airport
+      // create a marker for the airport Merrit
   var AirportMarkerMerrit = new google.maps.Marker({
     position: {
       lat: 28.3424508, 
@@ -623,6 +630,7 @@ function formTime(date) {
 getAPIdataa();
 
 
+// opent 5 dagen weersverwachting met eenn
 function myDing() {
     var x = document.getElementById("myDIV");
     if (x.style.display === "block") {
