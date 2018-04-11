@@ -8,36 +8,31 @@
 </head>
   <body>
     <header> <img src="assets/images/logo.jpg" alt="Smiley face"> </header>
-    <div class="flex-container"> 
-
-      <div class="item" id="map"></div>
-      
-      <div class="item3"> 
-        <div class="legenda">
+    <section class="flex-container"> 
+      <!-- item 1 -->
+      <article class="item" id="map"></article>
+      <!-- item 3 -->
+      <article class="item3"> 
+        <article class="legenda">
           <h1> Legenda </h1>
           <h2> Florida U.S.A. </h2>
           <img src="assets/images/space-station.png" alt="Space station" > <p> = Space station </p> <br>
           <img src="assets/images/landing.png" alt="Landing space x" ><p> = landing space x </p>
           <article id="weather2"></article>
-        </div>
-      </div>
-
-      <div class="item2"> 
+        </article>
+      </article>
+      <!-- item 2 -->
+      <article class="item2"> 
+        <!--button weer -->
         <a class="btn" onclick="myDing()"> Het weer komende 5 dagen &darr;</a>
         <div  id="myDIV">
-          <article  id="weather"></article> 
+          <article  id="weather"></article> <!-- het weer komende 5 dagen show -->
         </div>
-      </div>
-  </div>
+      </article>
+    </section>
 
     <script>
-      var map;
-      function initMap() {
-        map = new google.maps.Map(document.getElementById('map'), {
-          center: {lat: -34.397, lng: 150.644},
-          zoom: 8
-        });
-      }
+
     </script>
       
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDH6MwuEBbDGsfTgW0UWMBa3nyPaIHe--s&callback=initMap"
