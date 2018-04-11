@@ -467,7 +467,7 @@ function initMap() {
             '<p><b>NASA shuttle landing facility</b>' +
             ' De Shuttle Landing Facility is een vliegveld dat gelegen is  '+
             'bij het stadje Merritt Island in Brevard County in de Amerikaanse staat Florida. '+
-            '<img src="assets/images/nasa.jpEg" alt="Kennedy space">'+
+            '<img src="assets/images/nasa.jpeg" alt="Kennedy space">'+
 
             '<p>Attribution: Kennedy Space Center, <a href="http://www.spacex.com/">'+
             'http://www.spacex.com/</a> '+
